@@ -1,0 +1,49 @@
+BEST IDEAS:
+
+Idea:
+
+A file system optimised for smaller flash storage (SD cards)
+
+Problem: SD cards are commonly formatted for the FAT file system which can contribute to a faster wearing process for the flash storage due to:
+- Lacking wear level optimisation (having frequently updated files write to the same memory blocks). Even with some SD cards built in wear level optimization it can still be sped up by this factor
+- Every Write,Delete,Resize updates the FAT, leading to more writes to the same sectors
+- The FAT file system lacks journaling (leading to a higher risk of data corruption at sudden power loss)
+
+Justification: To provide a file system that can mitigate or assist in the mitigation of these problems
+
+
+
+
+Idea:
+A Lightweight Hypervisor for Embedded Systems
+
+Problem:
+Most hypervisors (e.g., KVM, Xen) are too heavy for constrained embedded devices, yet there is a growing need for lightweight virtualization to support mixed-criticality applications (e.g., real-time control + general-purpose apps).
+Justification:
+A custom-designed lightweight hypervisor could allow multiple OS instances to run securely and efficiently on resource-constrained platforms (ARM Cortex-M, RISC-V, etc.), improving reliability, security isolation, and hardware utilization in IoT and edge computing.
+
+
+
+
+
+Idea:
+Hardware-Assisted Intrusion Detection for RISC-V
+
+Problem: Traditional IDS/IPS run in software and are too slow/power-hungry for embedded/IoT. RISC-V offers hardware extensions that could support lightweight security monitoring.
+Justification:  build a kernel module or lightweight monitor that uses performance counters / custom ISA extensions to detect anomalies (like buffer overflows or unusual syscalls).
+
+=================================================================================================
+
+Idea 1:
+A program to generate small kernel binary’s for the x86 , ARM and RISCv architectures
+
+Problem: Kernels are time consuming to develop as well as taking specialist knowledge to develop
+
+Justification: This program will contain basic drivers for the specified architecture that the user wishes to output and will allow for faster and more optimal development for microprocessor / general OS development.
+
+Idea 2:
+Effects Of Quantum Computing within operating systems / embedded systems
+
+Problem: We do not know a large amount on the effects that quantum computing will have within operating systems / embedded systems
+
+Justification: To be a collection of knowledge and ongoing research of the effects as well as to explore the architectural changes that may need to occur in order to facilitate the system level programs for a quantum based machine.
