@@ -1,0 +1,11 @@
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/uninstall.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/pubsub_uninstall.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/pubnode.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/subnode.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/test.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/edit_cache.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/rebuild_cache.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/list_install_components.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/install.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/install/local.dir
+/home/cameron/ros2_ws/build/pubsub/CMakeFiles/install/strip.dir

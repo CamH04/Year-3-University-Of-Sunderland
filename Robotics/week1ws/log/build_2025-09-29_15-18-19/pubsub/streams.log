@@ -1,0 +1,46 @@
+[0.025s] Invoking command in '/home/cameron/ros2_ws/build/pubsub': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cameron/ros2_ws/install/pubsub_py:/home/cameron/ros2_ws/install/my_py_pubsub:/opt/ros/jazzy /usr/bin/cmake --build /home/cameron/ros2_ws/build/pubsub -- -j4 -l4
+[0.075s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.449s] -- Found rclcpp: 28.1.12 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.506s] -- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.524s] -- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.542s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.563s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.676s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.678s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.794s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.924s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.948s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.106s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.106s] -- Configured cppcheck include dirs: 
+[1.106s] -- Configured cppcheck exclude dirs and/or files: 
+[1.107s] -- Added test 'lint_cmake' to check CMake code style
+[1.108s] -- Added test 'uncrustify' to check C / C++ code style
+[1.109s] -- Configured uncrustify additional arguments: 
+[1.109s] -- Added test 'xmllint' to check XML markup files
+[1.111s] -- Configuring done (1.0s)
+[1.128s] -- Generating done (0.0s)
+[1.134s] -- Build files have been written to: /home/cameron/ros2_ws/build/pubsub
+[1.199s] [ 50%] [32mBuilding CXX object CMakeFiles/pubnode.dir/src/pubnode.cpp.o[0m
+[8.600s] [100%] [32m[1mLinking CXX executable pubnode[0m
+[8.912s] [100%] Built target pubnode
+[8.932s] Invoked command in '/home/cameron/ros2_ws/build/pubsub' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cameron/ros2_ws/install/pubsub_py:/home/cameron/ros2_ws/install/my_py_pubsub:/opt/ros/jazzy /usr/bin/cmake --build /home/cameron/ros2_ws/build/pubsub -- -j4 -l4
+[8.953s] Invoking command in '/home/cameron/ros2_ws/build/pubsub': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cameron/ros2_ws/install/pubsub_py:/home/cameron/ros2_ws/install/my_py_pubsub:/opt/ros/jazzy /usr/bin/cmake --install /home/cameron/ros2_ws/build/pubsub
+[8.969s] -- Install configuration: ""
+[8.969s] -- Installing: /home/cameron/ros2_ws/install/pubsub/lib/pubsub/pubnode
+[8.971s] -- Set non-toolchain portion of runtime path of "/home/cameron/ros2_ws/install/pubsub/lib/pubsub/pubnode" to ""
+[8.971s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/ament_index/resource_index/package_run_dependencies/pubsub
+[8.971s] -- Installing: /home/cameron/ros2_ws/install/pubsub/share/ament_index/resource_index/parent_prefix_path/pubsub
+[8.972s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/environment/ament_prefix_path.sh
+[8.972s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/environment/ament_prefix_path.dsv
+[8.972s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/environment/path.sh
+[8.972s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/environment/path.dsv
+[8.972s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/local_setup.bash
+[8.972s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/local_setup.sh
+[8.972s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/local_setup.zsh
+[8.973s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/local_setup.dsv
+[8.973s] -- Installing: /home/cameron/ros2_ws/install/pubsub/share/pubsub/package.dsv
+[8.973s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/ament_index/resource_index/packages/pubsub
+[8.973s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/cmake/pubsubConfig.cmake
+[8.973s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/cmake/pubsubConfig-version.cmake
+[8.973s] -- Up-to-date: /home/cameron/ros2_ws/install/pubsub/share/pubsub/package.xml
+[8.976s] Invoked command in '/home/cameron/ros2_ws/build/pubsub' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/cameron/ros2_ws/install/pubsub_py:/home/cameron/ros2_ws/install/my_py_pubsub:/opt/ros/jazzy /usr/bin/cmake --install /home/cameron/ros2_ws/build/pubsub

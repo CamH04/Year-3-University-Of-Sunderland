@@ -1,0 +1,4 @@
+Invoking command in '/home/cameron/ros2_ws/build/pubsub': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/cameron/ros2_ws/build/pubsub -- -j4 -l4
+Invoked command in '/home/cameron/ros2_ws/build/pubsub' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/cameron/ros2_ws/build/pubsub -- -j4 -l4
+Invoking command in '/home/cameron/ros2_ws/build/pubsub': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/cameron/ros2_ws/build/pubsub
+Invoked command in '/home/cameron/ros2_ws/build/pubsub' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/cameron/ros2_ws/build/pubsub

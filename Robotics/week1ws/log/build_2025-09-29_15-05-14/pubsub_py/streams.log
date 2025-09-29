@@ -1,0 +1,22 @@
+[1.775s] Invoking command in '/home/cameron/ros2_ws/build/pubsub_py': PYTHONPATH=/home/cameron/ros2_ws/build/pubsub_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cameron/ros2_ws/install/pubsub_py/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/cameron/ros2_ws/build/pubsub_py/build --no-deps symlink_data
+[2.494s] running develop
+[2.966s] running egg_info
+[2.967s] creating pubsub_py.egg-info
+[3.011s] writing pubsub_py.egg-info/PKG-INFO
+[3.012s] writing dependency_links to pubsub_py.egg-info/dependency_links.txt
+[3.012s] writing requirements to pubsub_py.egg-info/requires.txt
+[3.012s] writing top-level names to pubsub_py.egg-info/top_level.txt
+[3.012s] writing manifest file 'pubsub_py.egg-info/SOURCES.txt'
+[3.107s] reading manifest file 'pubsub_py.egg-info/SOURCES.txt'
+[3.108s] writing manifest file 'pubsub_py.egg-info/SOURCES.txt'
+[3.158s] running build_ext
+[3.159s] Creating /home/cameron/ros2_ws/install/pubsub_py/lib/python3.12/site-packages/pubsub-py.egg-link (link to .)
+[3.159s] 
+[3.160s] Installed /home/cameron/ros2_ws/build/pubsub_py
+[3.160s] running symlink_data
+[3.160s] creating /home/cameron/ros2_ws/install/pubsub_py/share/ament_index
+[3.160s] creating /home/cameron/ros2_ws/install/pubsub_py/share/ament_index/resource_index
+[3.160s] creating /home/cameron/ros2_ws/install/pubsub_py/share/ament_index/resource_index/packages
+[3.161s] symbolically linking /home/cameron/ros2_ws/build/pubsub_py/resource/pubsub_py -> /home/cameron/ros2_ws/install/pubsub_py/share/ament_index/resource_index/packages
+[3.161s] symbolically linking /home/cameron/ros2_ws/build/pubsub_py/package.xml -> /home/cameron/ros2_ws/install/pubsub_py/share/pubsub_py
+[3.243s] Invoked command in '/home/cameron/ros2_ws/build/pubsub_py' returned '0': PYTHONPATH=/home/cameron/ros2_ws/build/pubsub_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cameron/ros2_ws/install/pubsub_py/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/cameron/ros2_ws/build/pubsub_py/build --no-deps symlink_data

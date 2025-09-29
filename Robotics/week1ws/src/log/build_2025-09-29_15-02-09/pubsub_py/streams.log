@@ -1,0 +1,34 @@
+[1.798s] Invoking command in '/home/cameron/ros2_ws/src/build/pubsub_py': PYTHONPATH=/home/cameron/ros2_ws/src/build/pubsub_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/cameron/ros2_ws/src/build/pubsub_py/build
+[2.440s] running develop
+[2.908s] Removing /home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages/pubsub-py.egg-link (link to .)
+[2.986s] Invoked command in '/home/cameron/ros2_ws/src/build/pubsub_py' returned '0': PYTHONPATH=/home/cameron/ros2_ws/src/build/pubsub_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/cameron/ros2_ws/src/build/pubsub_py/build
+[2.988s] Invoking command in '/home/cameron/ros2_ws/src/pubsub_py': PYTHONPATH=/home/cameron/ros2_ws/src/build/pubsub_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/pubsub_py build --build-base /home/cameron/ros2_ws/src/build/pubsub_py/build install --record /home/cameron/ros2_ws/src/build/pubsub_py/install.log --single-version-externally-managed install_data --force
+[3.572s] running egg_info
+[3.617s] writing ../build/pubsub_py/pubsub_py.egg-info/PKG-INFO
+[3.618s] writing dependency_links to ../build/pubsub_py/pubsub_py.egg-info/dependency_links.txt
+[3.618s] writing requirements to ../build/pubsub_py/pubsub_py.egg-info/requires.txt
+[3.618s] writing top-level names to ../build/pubsub_py/pubsub_py.egg-info/top_level.txt
+[3.721s] reading manifest file '../build/pubsub_py/pubsub_py.egg-info/SOURCES.txt'
+[3.722s] writing manifest file '../build/pubsub_py/pubsub_py.egg-info/SOURCES.txt'
+[3.722s] running build
+[3.723s] running build_py
+[3.723s] creating /home/cameron/ros2_ws/src/build/pubsub_py/build
+[3.723s] creating /home/cameron/ros2_ws/src/build/pubsub_py/build/lib
+[3.723s] creating /home/cameron/ros2_ws/src/build/pubsub_py/build/lib/pubsub_py
+[3.723s] copying pubsub_py/publisher.py -> /home/cameron/ros2_ws/src/build/pubsub_py/build/lib/pubsub_py
+[3.724s] copying pubsub_py/__init__.py -> /home/cameron/ros2_ws/src/build/pubsub_py/build/lib/pubsub_py
+[3.724s] running install
+[3.736s] running install_lib
+[3.791s] creating /home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages/pubsub_py
+[3.791s] copying /home/cameron/ros2_ws/src/build/pubsub_py/build/lib/pubsub_py/publisher.py -> /home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages/pubsub_py
+[3.791s] copying /home/cameron/ros2_ws/src/build/pubsub_py/build/lib/pubsub_py/__init__.py -> /home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages/pubsub_py
+[3.792s] byte-compiling /home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages/pubsub_py/publisher.py to publisher.cpython-312.pyc
+[3.792s] byte-compiling /home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages/pubsub_py/__init__.py to __init__.cpython-312.pyc
+[3.793s] running install_data
+[3.793s] copying resource/pubsub_py -> /home/cameron/ros2_ws/src/install/pubsub_py/share/ament_index/resource_index/packages
+[3.793s] copying package.xml -> /home/cameron/ros2_ws/src/install/pubsub_py/share/pubsub_py
+[3.794s] running install_egg_info
+[3.855s] Copying ../build/pubsub_py/pubsub_py.egg-info to /home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages/pubsub_py-0.0.0-py3.12.egg-info
+[3.857s] running install_scripts
+[4.176s] writing list of installed files to '/home/cameron/ros2_ws/src/build/pubsub_py/install.log'
+[4.240s] Invoked command in '/home/cameron/ros2_ws/src/pubsub_py' returned '0': PYTHONPATH=/home/cameron/ros2_ws/src/build/pubsub_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cameron/ros2_ws/src/install/pubsub_py/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/pubsub_py build --build-base /home/cameron/ros2_ws/src/build/pubsub_py/build install --record /home/cameron/ros2_ws/src/build/pubsub_py/install.log --single-version-externally-managed install_data --force
