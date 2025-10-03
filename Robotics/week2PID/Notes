@@ -1,0 +1,10 @@
+Which term in a PID controller primarily helps to eliminate steady-state error?
+                    : Integreal
+
+
+Increasing the proportional gain Kp generally:
+                    : Inceases system responce but may increace overshoot
+
+
+The derivative term Kd in a PID controller:
+                    : Predicts system behaviour to improve stability
