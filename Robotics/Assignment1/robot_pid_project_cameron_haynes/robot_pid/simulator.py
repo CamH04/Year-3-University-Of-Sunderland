@@ -9,7 +9,8 @@ WINDOW_HEIGHT = 600
 GRID_SIZE = 20
 CELL_SIZE = 25
 FPS = 30
-DT = 1.00  #TIME STEP (HIGHER = FASTER)
+DT = 0.10  #TIME STEP (HIGHER = FASTER)
+trailsize = 1500
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -153,7 +154,7 @@ class Simulator:
 
         #trail chceking =============
         self.robot_trail.append((self.robot.x, self.robot.y))
-        if len(self.robot_trail) > 1000:
+        if len(self.robot_trail) > trailsize:
             self.robot_trail.pop(0)
 
         if goal_reached:
