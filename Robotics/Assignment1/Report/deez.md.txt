@@ -1,0 +1,474 @@
+# Robot PID Controller Simulator
+
+A modular 2D robot simulator implementing A* path planning with PID control for autonomous navigation.
+
+## 📁 Project Structure
+
+```
+robot_simulator/
+├── pid.py          # PID controller implementation
+├── planner.py      # A* pathfinding algorithm
+├── robot.py        # Robot dynamics and control interface
+├── simulator.py    # Main program with GUI
+└── README.md       # This file
+```
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+pip install pygame
+```
+
+### Running the Simulator
+
+```bash
+python simulator.py
+```
+
+## 📚 Module Documentation
+
+### `pid.py` - PID Controller
+
+**Class: `PIDController`**
+
+A complete PID implementation with anti-windup protection.
+
+```python
+from pid import PIDController
+
+# Create controller
+pid = PIDController(kp=1.0, ki=0.1, kd=0.5, integral_limit=10.0)
+
+# Compute control output
+error = setpoint - measured_value
+control = pid.compute(error, dt=0.05)
+
+# Reset controller state
+pid.reset()
+```
+
+**Key Methods:**
+- `compute(error, dt)` - Calculate PID output
+- `reset()` - Clear integral and derivative terms
+- `set_gains(kp, ki, kd)` - Update PID gains dynamically
+
+**Features:**
+- Anti-windup protection via integral clamping
+- Proper derivative calculation with time step
+- Clear separation of P, I, and D terms
+
+---
+
+### `planner.py` - A* Path Planner
+
+**Class: `AStarPlanner`**
+
+Grid-based A* pathfinding with Manhattan distance heuristic.
+
+```python
+from planner import AStarPlanner
+
+# Create planner for 20x20 grid
+planner = AStarPlanner(grid_rows=20, grid_cols=20)
+
+# Add obstacles
+planner.set_obstacle(5, 5)
+planner.set_obstacle(5, 6)
+
+# Find path
+path = planner.find_path(start_pos=(1, 1), goal_pos=(18, 18))
+# Returns: [(1, 1), (2, 1), (3, 1), ...]
+```
+
+**Key Methods:**
+- `find_path(start_pos, goal_pos)` - Returns list of grid coordinates
+- `set_obstacle(row, col)` - Mark cell as obstacle
+- `clear_obstacle(row, col)` - Remove obstacle
+- `get_neighbors(node)` - Get valid adjacent cells (4-connected)
+
+**Features:**
+- Optimal pathfinding using A* algorithm
+- Efficient priority queue with heapq
+- Handles static obstacles
+- Returns empty list if no path exists
+
+---
+
+### `robot.py` - Robot Dynamics
+
+**Class: `Robot`**
+
+Differential drive robot with integrated PID path following.
+
+```python
+from robot import Robot
+from pid import PIDController
+
+# Create robot
+robot = Robot(x=100, y=100, theta=0.0, max_speed=3.0)
+
+# Assign PID controllers
+heading_pid = PIDController(kp=1.8, ki=0.005, kd=0.8)
+speed_pid = PIDController(kp=0.6, ki=0.02, kd=0.3)
+robot.set_pid_controllers(heading_pid, speed_pid)
+
+# Set path (world coordinates)
+path = [(100, 100), (200, 150), (300, 200)]
+robot.set_path(path)
+
+# Update (call each timestep)
+goal_reached = robot.update(dt=0.05)
+
+# Get performance metrics
+metrics = robot.get_metrics(current_time=10.5)
+```
+
+**Key Methods:**
+- `set_pid_controllers(heading_pid, speed_pid)` - Assign controllers
+- `set_path(path)` - Set waypoint path to follow
+- `update(dt)` - Update robot state, returns True when goal reached
+- `get_metrics(current_time)` - Get performance statistics
+
+**Tracked Metrics:**
+- Time to goal
+- Total path length
+- Average cross-track error
+- Maximum cross-track error
+- Number of samples
+
+**State Variables:**
+- `x, y` - Position (world coordinates)
+- `theta` - Heading angle (radians)
+- `v` - Linear velocity
+- `omega` - Angular velocity
+
+---
+
+### `simulator.py` - Main Program
+
+**Class: `Simulator`**
+
+Pygame-based visualization and experiment runner.
+
+**Controls:**
+- `SPACE` - Start/Pause simulation
+- `R` - Reset current experiment
+- `1` - Switch to Under-damped configuration
+- `2` - Switch to Over-damped configuration
+- `3` - Switch to Well-tuned configuration
+
+**Features:**
+- Real-time visualization
+- Robot trail rendering
+- Live performance metrics
+- Easy PID configuration switching
+
+---
+
+## 🧪 Experiments
+
+The simulator includes three pre-configured PID gain sets:
+
+### 1. Under-damped (High Kp)
+```python
+heading: kp=3.5, ki=0.01, kd=0.3
+speed:   kp=1.2, ki=0.05, kd=0.1
+```
+**Characteristics:**
+- Fast initial response
+- High overshoot
+- Oscillations around target
+- Longer settling time
+
+### 2. Over-damped (High Kd)
+```python
+heading: kp=0.8, ki=0.001, kd=2.5
+speed:   kp=0.3, ki=0.001, kd=1.0
+```
+**Characteristics:**
+- Slow, sluggish response
+- Minimal overshoot
+- Smooth but inefficient path
+- Longer time to goal
+
+### 3. Well-tuned (Balanced)
+```python
+heading: kp=1.8, ki=0.005, kd=0.8
+speed:   kp=0.6, ki=0.02, kd=0.3
+```
+**Characteristics:**
+- Optimal response time
+- Minimal oscillation
+- Low cross-track error
+- Efficient path following
+
+---
+
+## 📊 Performance Metrics
+
+Each experiment automatically tracks:
+
+1. **Time to Goal**: Total simulation time to reach destination
+2. **Path Length**: Actual distance traveled (vs optimal path)
+3. **Average Cross-Track Error**: Mean perpendicular deviation from path
+4. **Maximum Cross-Track Error**: Peak deviation from path
+
+### Example Results
+
+```
+Configuration: Well-tuned (Balanced)
+============================================================
+time_to_goal: 8.450
+path_length: 625.342
+avg_cross_track_error: 2.341
+max_cross_track_error: 8.765
+num_samples: 169
+============================================================
+```
+
+---
+
+## 🔧 Customization
+
+### Adding New Obstacles
+
+Edit `simulator.py`, modify the `_setup_obstacles()` method:
+
+```python
+def _setup_obstacles(self):
+    obstacles = [
+        (5, 5), (5, 6), (5, 7),  # Your obstacles here
+    ]
+    for row, col in obstacles:
+        self.planner.set_obstacle(row, col)
+```
+
+### Creating Custom PID Configurations
+
+Add to `PID_CONFIGS` in `simulator.py`:
+
+```python
+PID_CONFIGS = {
+    'my_config': {
+        'name': 'My Custom Config',
+        'heading': {'kp': 2.0, 'ki': 0.01, 'kd': 1.0},
+        'speed': {'kp': 0.8, 'ki': 0.03, 'kd': 0.5},
+        'color': (200, 100, 200)
+    }
+}
+```
+
+### Tuning PID Gains
+
+**General Guidelines:**
+
+- **Kp (Proportional)**: 
+  - Increase for faster response
+  - Too high causes oscillation
+  
+- **Ki (Integral)**:
+  - Eliminates steady-state error
+  - Too high causes overshoot and instability
+  
+- **Kd (Derivative)**:
+  - Reduces overshoot and dampens oscillations
+  - Too high makes system sluggish and noise-sensitive
+
+**Tuning Process:**
+1. Start with Kp only (Ki=0, Kd=0)
+2. Increase Kp until system oscillates
+3. Add Kd to dampen oscillations
+4. Add small Ki to eliminate steady-state error
+5. Fine-tune all three gains
+
+---
+
+## 🎯 Usage Examples
+
+### Example 1: Basic Robot Control
+
+```python
+from robot import Robot
+from pid import PIDController
+
+# Create robot and controllers
+robot = Robot(x=50, y=50, theta=0)
+heading_pid = PIDController(kp=1.5, ki=0.01, kd=0.5)
+speed_pid = PIDController(kp=0.5, ki=0.02, kd=0.2)
+
+robot.set_pid_controllers(heading_pid, speed_pid)
+robot.set_path([(50, 50), (150, 100), (250, 150)])
+
+# Simulation loop
+dt = 0.05
+while not robot.update(dt):
+    print(f"Position: ({robot.x:.1f}, {robot.y:.1f})")
+```
+
+### Example 2: Custom Path Planning
+
+```python
+from planner import AStarPlanner
+
+planner = AStarPlanner(30, 30)
+
+# Create maze-like obstacles
+for i in range(5, 15):
+    planner.set_obstacle(i, 10)
+    planner.set_obstacle(i, 20)
+
+# Find path through maze
+path = planner.find_path((1, 15), (28, 15))
+print(f"Path length: {len(path)} steps")
+```
+
+### Example 3: PID Tuning Comparison
+
+```python
+configs = [
+    {'kp': 1.0, 'ki': 0.01, 'kd': 0.3},
+    {'kp': 2.0, 'ki': 0.01, 'kd': 0.3},
+    {'kp': 3.0, 'ki': 0.01, 'kd': 0.3},
+]
+
+for i, config in enumerate(configs):
+    robot = Robot(100, 100)
+    pid = PIDController(**config)
+    robot.set_pid_controllers(pid, speed_pid)
+    robot.set_path(test_path)
+    
+    # Run simulation...
+    metrics = robot.get_metrics(sim_time)
+    print(f"Config {i}: {metrics}")
+```
+
+---
+
+## 🐛 Troubleshooting
+
+**Robot oscillates excessively:**
+- Reduce Kp gain
+- Increase Kd gain
+- Check for numerical instability (dt too large)
+
+**Robot moves too slowly:**
+- Increase Kp for both controllers
+- Reduce Kd gain
+- Check max_speed limit
+
+**Robot overshoots waypoints:**
+- Reduce waypoint tolerance in `robot.py`
+- Increase Kd gain
+- Reduce max_speed
+
+**No path found:**
+- Check start/goal are not on obstacles
+- Verify obstacle placement doesn't block all paths
+- Ensure grid coordinates are valid
+
+---
+
+## 📖 Algorithm Details
+
+### A* Pathfinding
+
+The planner uses the A* algorithm with:
+- **g-score**: Actual cost from start to current node
+- **h-score**: Manhattan distance heuristic to goal
+- **f-score**: g + h (total estimated cost)
+
+The algorithm guarantees optimal paths on grid-based maps.
+
+### PID Control Loop
+
+For each timestep:
+
+1. Calculate heading error (desired angle - current angle)
+2. Calculate speed error (desired speed - current speed)
+3. Compute PID outputs for angular and linear velocity
+4. Apply velocity limits
+5. Update robot pose using kinematic model:
+   - `theta += omega * dt`
+   - `x += v * cos(theta) * dt`
+   - `y += v * sin(theta) * dt`
+6. Track cross-track error for metrics
+
+### Cross-Track Error Calculation
+
+Perpendicular distance from robot to path segment:
+```
+cross_track = |dx * sin(theta) - dy * cos(theta)|
+```
+where (dx, dy) is vector to next waypoint.
+
+---
+
+## 🎓 Educational Notes
+
+This simulator demonstrates key concepts in robotics:
+
+1. **Path Planning**: Finding optimal routes through obstacles
+2. **Control Theory**: Using feedback to follow planned paths
+3. **System Dynamics**: How PID gains affect robot behavior
+4. **Performance Analysis**: Quantifying control quality
+
+**Learning Objectives:**
+- Understand PID controller components
+- Observe effects of different gain values
+- Analyze trade-offs between speed and accuracy
+- Compare deliberative (planning) vs reactive control
+
+---
+
+## 📈 Experimental Procedure
+
+1. **Run Under-damped**: Press `1`, then `SPACE`
+   - Observe oscillations and overshoot
+   - Record metrics when complete
+
+2. **Run Over-damped**: Press `2`, then `SPACE`
+   - Observe slow, smooth motion
+   - Record metrics when complete
+
+3. **Run Well-tuned**: Press `3`, then `SPACE`
+   - Observe balanced performance
+   - Record metrics when complete
+
+4. **Compare Results**: Analyze the trade-offs
+   - Which has lowest cross-track error?
+   - Which reaches goal fastest?
+   - Which travels shortest distance?
+
+---
+
+## 🔬 Advanced Extensions
+
+Ideas for further development:
+
+- Add dynamic obstacles (moving)
+- Implement other control methods (MPC, LQR)
+- Add sensor noise and filtering
+- Implement replanning for dynamic environments
+- Add multiple robots with collision avoidance
+- Visualize PID error terms in real-time
+- Export metrics to CSV for analysis
+- Add different robot models (Ackermann steering)
+
+---
+
+## 📝 License
+
+This code is provided for educational purposes.
+
+## 🙏 Acknowledgments
+
+Built with:
+- Python 3.x
+- Pygame for visualization
+- Standard library (heapq, math, typing)
+
+---
+
+**Happy Simulating! 🤖**
