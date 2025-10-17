@@ -1,7 +1,3 @@
-# ============================================================================
-# robot_pid/pid.py - PID Controller Implementation
-# ============================================================================
-
 class PIDController:
 
         #kp: New proportional gain

@@ -5,11 +5,11 @@ from robot_pid.pid import PIDController
 
 class Robot:
     """
-    uses two PID controllers:
-    - Heading controller: Controls angular velocity to face desired direction
-    - Speed controller: Controls linear velocity to maintain desired speed
+   PID controllers
+    - heaing-  controls angular velocity to face desired direction
+    - speed-   ontrols linear velocity to maintain desired speed
 
-    Attributes:
+    attribs:
         x (float): X position in world coordinates
         y (float): Y position in world coordinates
         theta (float): Heading angle in radians

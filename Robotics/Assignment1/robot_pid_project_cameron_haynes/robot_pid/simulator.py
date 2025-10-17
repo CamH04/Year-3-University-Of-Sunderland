@@ -10,7 +10,7 @@ GRID_SIZE = 20
 CELL_SIZE = 25
 FPS = 30
 DT = 0.10  #TIME STEP (HIGHER = FASTER)
-trailsize = 1500
+trailsize = 3000
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
