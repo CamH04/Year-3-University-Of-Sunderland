@@ -5,9 +5,9 @@ from robot_pid.pid import PIDController
 
 class Robot:
     """
-   PID controllers
-    - heaing-  controls angular velocity to face desired direction
-    - speed-   ontrols linear velocity to maintain desired speed
+   PID controllers in this sim
+    - heaing:  controls angular velocity to face desired direction
+    - speed:   controls linear velocity to keep desired speed
 
     attribs:
         x (float): X position in world coordinates
