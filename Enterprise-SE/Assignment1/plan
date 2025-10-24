@@ -1,0 +1,50 @@
+Introduction
+
+    Briefly introduce the purpose of the report: designing a software system for SunMortgages Ltd to manage client records efficiently, securely, and scalably.
+
+    Describe the business context: working with property developers and individual clients, and brokerage relationship with a national bank.
+
+    Outline key requirements such as accessibility, security, scalability, and system integration with the bank’s mortgage deals.
+
+System Architecture
+
+    Propose a suitable software architecture (e.g., layered, microservices).
+
+    Justify choice based on scalability, security, accessibility, and multi-user roles (staff, property developers, customers).
+
+    Discuss communication mechanisms with the bank system.
+
+    Address data storage, access control, and security concerns (e.g., encryption, authentication).
+
+    Explain how the architecture supports future expansion.
+
+Sequence Diagrams
+
+    Present sequence diagrams illustrating:
+
+        Staff retrieving member details.
+
+        Customer updating their own record.
+
+        System retrieving latest mortgage deals from the bank.
+
+    Include descriptions of the interactions, objects involved, and message flow.
+
+Class Diagram
+
+    Provide a detailed class diagram covering:
+
+        Relevant classes with attributes, methods, and data types.
+
+        Relationships between classes with cardinalities and association/aggregation labels.
+
+    Justify design decisions relevant to how the system models client records and interactions.
+
+Report (Methodology and Justification)
+
+    Critically assess and justify the choice of software engineering lifecycles and development methodologies (e.g., Agile, Scrum, Waterfall).
+
+    Support your discussion with academic sources and literature using Harvard referencing.
+
+    Explain how the methodology supports the system design, implementation, evaluation, and continuous improvement.
+
