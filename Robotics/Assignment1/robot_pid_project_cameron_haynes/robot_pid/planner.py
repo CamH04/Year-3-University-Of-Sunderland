@@ -2,7 +2,7 @@ import heapq
 from typing import List, Tuple, Optional
 
 class Node:
-
+    # constructure
     def __init__(self, row: int, col: int):
         self.row = row
         self.col = col
@@ -12,36 +12,40 @@ class Node:
         self.parent: Optional[Node] = None
         self.is_obstacle = False
 
+    #magic method to compare objects
     def __lt__(self, other):
         return self.f < other.f
-
+    # reset A*
     def reset(self):
         self.g = float('inf')
         self.h = 0.0
         self.f = float('inf')
         self.parent = None
 
-
+# A* IMP
 class AStarPlanner:
-    # A* IMP
-
+      # constructure
     def __init__(self, grid_rows: int, grid_cols: int):
         self.rows = grid_rows
         self.cols = grid_cols
         self.grid = [[Node(r, c) for c in range(grid_cols)] for r in range(grid_rows)]
 
+    #fiding obstacles
     def set_obstacle(self, row: int, col: int):
         if 0 <= row < self.rows and 0 <= col < self.cols:
             self.grid[row][col].is_obstacle = True
 
+    #cleaing obstacles
     def clear_obstacle(self, row: int, col: int):
         if 0 <= row < self.rows and 0 <= col < self.cols:
             self.grid[row][col].is_obstacle = False
 
+    # calc manhattan heuristic
     @staticmethod
     def heuristic(node_a: Node, node_b: Node) -> float:
         return abs(node_a.row - node_b.row) + abs(node_a.col - node_b.col)
 
+    # getting neighbor cells in sim
     def get_neighbors(self, node: Node) -> List[Node]:
         neighbors = []
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
@@ -51,6 +55,7 @@ class AStarPlanner:
                 neighbors.append(self.grid[r][c])
         return neighbors
 
+    #logic for A* path search
     def find_path(self, start_pos: Tuple[int, int], goal_pos: Tuple[int, int]) -> List[Tuple[int, int]]:
         for row in self.grid:
             for node in row:
@@ -85,13 +90,12 @@ class AStarPlanner:
 
         return []
 
+    #remaking path
     def _reconstruct_path(self, goal: Node) -> List[Tuple[int, int]]:
         path = []
         current = goal
-
         while current.parent is not None:
             path.append((current.row, current.col))
             current = current.parent
-
         path.reverse()
         return path

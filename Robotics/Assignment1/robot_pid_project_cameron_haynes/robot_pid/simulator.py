@@ -4,6 +4,7 @@ from robot_pid.planner import AStarPlanner
 from robot_pid.robot import Robot
 from robot_pid.pid import PIDController
 
+#settings for pigame
 WINDOW_WIDTH = 900
 WINDOW_HEIGHT = 600
 GRID_SIZE = 20
@@ -12,6 +13,7 @@ FPS = 30
 DT = 0.10  #TIME STEP (HIGHER = FASTER)
 trailsize = 3000
 
+#colours for ui
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GREEN = (0, 255, 0)
@@ -20,6 +22,7 @@ GRAY = (128, 128, 128)
 BLUE = (0, 100, 255)
 YELLOW = (255, 255, 100)
 
+#PID settings selected through ui (1,2,3)
 PID_CONFIGS = {
     'under_damped': {
         'name': 'Under-damped (High Kp)',
@@ -42,6 +45,7 @@ PID_CONFIGS = {
 }
 
 class Simulator:
+    #constructure
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -76,6 +80,7 @@ class Simulator:
 
         self._initialize_robot()
 
+    # put obstacles in sim
     def _setup_obstacles(self):
         obstacles = [
             #VIRT WALL
@@ -92,6 +97,7 @@ class Simulator:
             if 0 <= row < GRID_SIZE and 0 <= col < GRID_SIZE:
                 self.planner.set_obstacle(row, col)
 
+    #init the robot with PID
     def _initialize_robot(self):
         config = PID_CONFIGS[self.current_config]
 
@@ -115,6 +121,7 @@ class Simulator:
         self.completed = False
         self.results = {}
 
+    # simulator loop
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -144,6 +151,7 @@ class Simulator:
 
         return True
 
+    #update every frame (30fps)
     def update(self):
         if not self.running or self.paused or self.completed:
             return
@@ -167,8 +175,8 @@ class Simulator:
                 print(f"{key}: {value:.3f}")
             print(f"{'='*60}\n")
 
+    # draw the UI in simulator
     def draw(self):
-
         self.screen.fill(WHITE)
 
         #GRID =============
@@ -178,7 +186,7 @@ class Simulator:
             pygame.draw.line(self.screen, (220, 220, 220),
                            (0, i * CELL_SIZE), (GRID_SIZE * CELL_SIZE, i * CELL_SIZE))
 
-        #OBS ==========================
+        #OBSTACLES ==========================
         for row in range(GRID_SIZE):
             for col in range(GRID_SIZE):
                 if self.planner.grid[row][col].is_obstacle:
@@ -208,6 +216,7 @@ class Simulator:
         self._draw_ui()
         pygame.display.flip()
 
+    #draw non-simulator UI
     def _draw_ui(self):
         ui_x = GRID_SIZE * CELL_SIZE + 20
         y = 20
@@ -251,12 +260,14 @@ class Simulator:
         y = self._draw_text(ui_x + 10, y, "2 - Over-damped", BLACK)
         y = self._draw_text(ui_x + 10, y, "3 - Well-tuned", BLACK)
 
+    #text draw in non-sim
     def _draw_text(self, x, y, text, color, bold=False):
         font = self.title_font if bold else self.font
         surface = font.render(text, True, color)
         self.screen.blit(surface, (x, y))
         return y + 25
 
+    #run the simulator updating every frame
     def run(self):
         running = True
         while running:

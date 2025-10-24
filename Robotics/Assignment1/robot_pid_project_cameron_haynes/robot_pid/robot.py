@@ -18,7 +18,7 @@ class Robot:
         max_speed (float): Maximum linear velocity
         max_angular_velocity (float): Maximum angular velocity
     """
-
+    #constructure
     def __init__(self, x: float, y: float, theta: float = 0.0,
                  max_speed: float = 3.0, max_angular_velocity: float = 2.0):
         self.x = x
@@ -40,10 +40,11 @@ class Robot:
         self.start_time = 0.0
         self.completion_time: Optional[float] = None
 
+    #setter for PID controller
     def set_pid_controllers(self, heading_pid: PIDController, speed_pid: PIDController):
         self.heading_pid = heading_pid
         self.speed_pid = speed_pid
-
+    #setter path for robot
     def set_path(self, path: List[Tuple[float, float]]):
         self.path = path
         self.path_index = 0
@@ -54,19 +55,16 @@ class Robot:
         if self.speed_pid:
             self.speed_pid.reset()
 
+    #robot update every frame logic
     def update(self, dt: float) -> bool:
         if not self.path or self.path_index >= len(self.path):
             return True
-
         if not self.heading_pid or not self.speed_pid:
             raise ValueError("PID controllers not set. Call set_pid_controllers() first.")
-
         target_x, target_y = self.path[self.path_index]
-
         dx = target_x - self.x
         dy = target_y - self.y
         distance = math.sqrt(dx * dx + dy * dy)
-
         if distance < 0.2:
             self.path_index += 1
             if self.path_index >= len(self.path):
@@ -75,18 +73,14 @@ class Robot:
             dx = target_x - self.x
             dy = target_y - self.y
             distance = math.sqrt(dx * dx + dy * dy)
-
         desired_theta = math.atan2(dy, dx)
-
         heading_error = desired_theta - self.theta
         while heading_error > math.pi:
             heading_error -= 2 * math.pi
         while heading_error < -math.pi:
             heading_error += 2 * math.pi
-
         desired_speed = min(self.max_speed, distance * 0.5)
         speed_error = desired_speed - self.v
-
         angular_control = self.heading_pid.compute(heading_error, dt)
         linear_control = self.speed_pid.compute(speed_error, dt)
 
@@ -107,6 +101,7 @@ class Robot:
 
         return False
 
+    #fetching stats for console print after sim run
     def get_metrics(self, current_time: float) -> dict:
         if not self.cross_track_errors:
             return {}
@@ -118,6 +113,7 @@ class Robot:
             'num_samples': len(self.cross_track_errors)
         }
 
+    #internal: clamping value
     @staticmethod
     def _clamp(value: float, min_val: float, max_val: float) -> float:
         return max(min_val, min(max_val, value))

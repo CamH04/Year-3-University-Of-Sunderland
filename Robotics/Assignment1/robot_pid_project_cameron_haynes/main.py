@@ -1,12 +1,11 @@
 import sys
 from robot_pid.simulator import Simulator
 
-
+# run simulaton, gracefully exit on keyboard input or exeption
 def main():
     try:
         sim = Simulator()
         sim.run()
-    #graceful exit on keyboard interrupt
     except KeyboardInterrupt:
         print("\n\nSimulation interrupted by user.")
         sys.exit(0)
