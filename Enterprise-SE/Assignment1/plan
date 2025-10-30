@@ -1,23 +1,9 @@
 System Architecture
-
-
-Strict role-based access control is enforced, with authentication and authorization layers controlling access to specific data and system features according to user type (staff, developers, customers).
 ​
-The architecture includes secure API endpoints to allow SunMortgages Ltd to communicate with the national bank securely. API gateway components and encrypted communication protocols (like HTTPS/TLS) safeguard sensitive data exchanges.
-
 Security measures such as web firewalls, intrusion detection systems, and data encryption both in transit and at rest are essential to protect client records and bank communications from unauthorized access and cyber threats.
-​
-Monitoring tools and health check services continuously track server and database status, enabling maintenance without downtime and proactive scaling as user numbers grow.
 
 Audit logging and activity monitoring are integrated to maintain compliance and trace user actions, which is crucial for financial and personal data management.
 
-    Propose a suitable software architecture (e.g., layered, microservices).
-
-    Justify choice based on scalability, security, accessibility, and multi-user roles (staff, property developers, customers).
-
-    Discuss communication mechanisms with the bank system.
-
-    Address data storage, access control, and security concerns (e.g., encryption, authentication).
 
     Explain how the architecture supports future expansion.
 
