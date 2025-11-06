@@ -1,48 +1,4 @@
-System Architecture
-​
-Security measures such as web firewalls, intrusion detection systems, and data encryption both in transit and at rest are essential to protect client records and bank communications from unauthorized access and cyber threats.
-
-Audit logging and activity monitoring are integrated to maintain compliance and trace user actions, which is crucial for financial and personal data management.
-
-
-    Explain how the architecture supports future expansion.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Sequence Diagrams
-
-    Present sequence diagrams illustrating:
-
-        Staff retrieving member details.
-
-        Customer updating their own record.
-
-        System retrieving latest mortgage deals from the bank.
-
-    Include descriptions of the interactions, objects involved, and message flow.
-
-Class Diagram
+UML Class Diagram
 
     Provide a detailed class diagram covering:
 
@@ -51,6 +7,9 @@ Class Diagram
         Relationships between classes with cardinalities and association/aggregation labels.
 
     Justify design decisions relevant to how the system models client records and interactions.
+
+
+
 
 Report (Methodology and Justification)
 
