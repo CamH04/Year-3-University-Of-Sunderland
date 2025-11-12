@@ -10,45 +10,6 @@ Report (Methodology and Justification)
 
 
 
-2. Overview of Software Engineering Lifecycles
-2.1 Waterfall Model
-
-Sequential and linear — each phase must be completed before the next.
-
-Suitable for projects with well-defined, stable requirements.
-
-Strengths:
-
-Clear structure and documentation.
-
-Easy to manage progress.
-
-Useful in regulated industries (e.g. aerospace, defence).
-
-Weaknesses:
-
-Inflexible to changing requirements.
-
-Late testing can lead to costly rework.
-
-Limited customer feedback until late stages.
-
-2.2 V-Model (Verification and Validation)
-
-Extension of Waterfall — emphasises testing at each development stage.
-
-Strengths:
-
-Improved quality assurance.
-
-Clear traceability between requirements and tests.
-
-Weaknesses:
-
-Still rigid; assumes stable requirements.
-
-Often used in safety-critical systems (e.g. medical, automotive).
-
 2.3 Incremental Model
 
 Software developed in small, functional increments.
@@ -56,6 +17,10 @@ Software developed in small, functional increments.
 Early delivery of partial systems; feedback integrated in later stages.
 
 Balances structure and flexibility.
+
+
+
+
 
 2.4 Spiral Model
 
@@ -72,6 +37,9 @@ Useful for large, high-risk projects.
 Weaknesses:
 
 Complex to manage; costly for small projects.
+
+
+
 
 2.5 Agile Lifecycle
 
@@ -92,6 +60,14 @@ Weaknesses:
 Requires high team discipline and communication.
 
 Less predictability in cost and schedule for large projects.
+
+
+
+
+
+
+
+
 
 
 
