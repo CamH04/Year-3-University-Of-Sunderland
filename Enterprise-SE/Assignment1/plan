@@ -1,69 +1,25 @@
+6. Emerging and Hybrid Approaches
+6.1 DevOps
 
-Report (Methodology and Justification)
+Integrates development and operations for continuous delivery and deployment.
 
-    Critically assess and justify the choice of software engineering lifecycles and development methodologies (e.g., Agile, Scrum, Waterfall).
+Builds on Agile principles; emphasises automation, monitoring, and feedback.
 
-    Support your discussion with academic sources and literature using Harvard referencing.
+Justification: reduces cycle time and improves deployment reliability.
 
-    Explain how the methodology supports the system design, implementation, evaluation, and continuous improvement.
+6.2 Agile-Waterfall Hybrid
 
+Combines plan-driven structure with Agile flexibility.
 
+Example: Waterfall for initial requirements and architecture, Agile for implementation.
 
+Suitable for large organisations transitioning from traditional to Agile environments.
 
-2.3 Incremental Model
+6.3 Model-Driven and Continuous Engineering
 
-Software developed in small, functional increments.
+Model-driven engineering (MDE) automates parts of design and implementation using models.
 
-Early delivery of partial systems; feedback integrated in later stages.
-
-Balances structure and flexibility.
-
-
-
-
-
-2.4 Spiral Model
-
-Combines iterative development with risk management.
-
-Four phases per cycle: planning, risk analysis, engineering, evaluation.
-
-Strengths:
-
-Explicit focus on risk assessment.
-
-Useful for large, high-risk projects.
-
-Weaknesses:
-
-Complex to manage; costly for small projects.
-
-
-
-
-2.5 Agile Lifecycle
-
-Iterative and adaptive approach; emphasises collaboration, customer feedback, and incremental delivery.
-
-Examples: Scrum, Kanban, Extreme Programming (XP).
-
-Strengths:
-
-Flexible and responsive to change.
-
-Encourages stakeholder engagement and continuous improvement.
-
-Early and frequent value delivery.
-
-Weaknesses:
-
-Requires high team discipline and communication.
-
-Less predictability in cost and schedule for large projects.
-
-
-
-
+Continuous engineering integrates feedback loops across lifecycle stages.
 
 
 
@@ -146,35 +102,6 @@ Agile metrics: velocity, customer satisfaction, defect rates.
 
 Plan-driven metrics: schedule variance, defect density, requirements traceability.
 
-
-
-
-
-
-
-
-6. Emerging and Hybrid Approaches
-6.1 DevOps
-
-Integrates development and operations for continuous delivery and deployment.
-
-Builds on Agile principles; emphasises automation, monitoring, and feedback.
-
-Justification: reduces cycle time and improves deployment reliability.
-
-6.2 Agile-Waterfall Hybrid
-
-Combines plan-driven structure with Agile flexibility.
-
-Example: Waterfall for initial requirements and architecture, Agile for implementation.
-
-Suitable for large organisations transitioning from traditional to Agile environments.
-
-6.3 Model-Driven and Continuous Engineering
-
-Model-driven engineering (MDE) automates parts of design and implementation using models.
-
-Continuous engineering integrates feedback loops across lifecycle stages.
 
 
 
