@@ -1,0 +1,48 @@
+Track Human
+Follow a human using lidar sensor
+Stop and maintain a saftey buffer
+
+Based on the industrial scenario, your project must include:
+A. Robot Platform
+    Using the Week-7 lab model as a foundation, you must:
+    • Use the differential-drive robot (have the urdf file diffbot.urdf)
+    • Add a 2D LiDAR sensor in URDF
+    • Use ros2_control with DiffDriveController
+    • Use cmd_vel-based behaviour
+B. Follow-and-Stop Behaviour
+    Your robot must:
+    1. Detect a moving target in front using the LiDAR (e.g., actor, simple robot, or box on a
+    trajectory).
+    2. Follow the target using a reactive, sensor-driven algorithm.
+    3. Stop when the target enters a predefined safety zone (e.g., < 0.8 m)
+    4. Resume following when the target moves away.
+    5. Operate fully reactively (no planners, maps, or cost maps).
+    Recommended components:
+    • Distance estimation from LiDAR ranges
+    • Sector-based nearest-object detection
+    • Behaviour switching (Follow → Stop → Follow)
+    • Proportional controller for speed
+    • Safety override behaviour
+C. Dynamic Environment
+    Your Gazebo world must include:
+    • A moving target (Gazebo actor or scripted model).
+    • At least one additional dynamic obstacle (to force perception decisions).
+    • Static elements (e.g., walls, warehouse layout, corridors).
+D. ROS 2 Software Architecture
+    Your system must include at least two custom ROS 2 nodes:
+    A. Perception Node
+    • Subscribes to /scan
+    • Extracts target distance
+    • Processes noisy sensor data
+    • Publishes perception states, e.g.:
+    o /target_distance
+    o /target_detected (boolean)
+    o /safe_to_move
+    B. Control Node
+    • Implements the follow-and-stop logic
+    • Subscribes to perception topics
+    • Publishes /cmd_vel
+    • Contains reactive state machine:
+    o SEARCH (if target not detected)
+    o FOLLOW (if target detected & safe)
+    o STOP (if too close)
