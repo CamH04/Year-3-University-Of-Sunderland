@@ -1,0 +1,361 @@
+Abstract (write last)
+
+Once you've finished everything else, summarise these five points in ~160 words:
+
+Scenario problem – Robot needs to follow a human safely in an industrial environment.
+
+Approach – LiDAR-only perception + reactive control (no planning).
+
+Techniques – ROS 2 nodes, finite state machine, safety thresholds.
+
+Evaluation – How well the robot followed, stopped, safety metrics.
+
+Ethics/legal – Why safe spacing and predictable motion matter.
+
+Conclusion – Robot worked, limitations found, future work.
+
+
+
+
+
+
+
+
+
+
+
+
+1. Introduction
+
+To complete this section, write about:
+
+✓ Scenario context
+
+Industrial warehouses and shared spaces with humans and robots.
+
+Need for autonomous following robots for logistics.
+
+✓ Problem definition
+
+Robot follows a dynamic target using only 2D LiDAR.
+
+No maps, no planning.
+
+Must stop at a defined safe distance.
+
+✓ Assessment constraints
+
+ROS 2 Jazzy
+
+Gazebo Harmonic
+
+Reactive behaviour only
+
+Simulation-based performance
+
+✓ Learning Outcomes
+
+Write one paragraph connecting your robot to LO2, LO3, LO4.
+
+
+
+
+
+2. System Design
+2.1 Robot Description
+
+You should explain:
+
+It is a differential-drive robot (like Week 7).
+
+URDF/Xacro includes:
+base link, two wheels, inertial params, ros2_control plugin.
+
+Why differential drive is good indoors (tight turning, simple control).
+Include a screenshot of your robot model in Gazebo.
+
+2.2 2D LiDAR Integration
+
+Add:
+
+LiDAR mounted at front-centre, horizontal plane.
+
+Typical parameters: 270–360° FOV, 0.5–1° resolution.
+
+ROS topic: /scan
+
+Strengths: fast, good for distance measurement.
+
+Weaknesses: no vertical detection, noise spikes, occlusion.
+
+Include a visualisation screenshot.
+
+2.3 Dynamic Environment
+
+Describe:
+
+Warehouse-style world (aisles, shelves, walls).
+
+Human-target actor with a scripted walking pattern.
+
+Additional moving obstacle (box, another agent).
+
+Static hazards like corners.
+
+State why this environment is realistic (crowded, narrow, unpredictable).
+
+2.4 ROS 2 Architecture
+
+This is a key scoring part. Explain:
+
+Perception Node
+
+Reads /scan
+
+Filters front arc (e.g., −30° to +30°)
+
+Computes nearest object
+
+Publishes:
+/target_detected, /target_distance, /safe_to_move
+
+Control Node
+
+Implements state machine: SEARCH → FOLLOW → STOP
+
+Publishes /cmd_vel
+
+Uses proportional control:
+v = k * (distance - safety_distance)
+
+Add a diagram of nodes & topics.
+
+2.5 Control Architecture Justification
+
+Write that reactive control was chosen because:
+
+Low latency
+
+Works well with noisy, dynamic environments
+
+Easy to verify for safety
+
+Planning is disallowed (fits constraints)
+
+Contrast with why planning/SLAM were not required.
+
+
+
+
+
+
+
+
+
+
+3. Behaviour Design & Algorithms
+3.1 Target Detection Algorithm
+
+Explain how you:
+
+Read /scan
+
+Filter angle region
+
+Get minimum range
+
+Ignore outliers
+
+Fail if target not seen
+
+Add pseudocode similar to the template.
+
+3.2 Safety Thresholds
+
+Include:
+
+Example:
+Safe distance = 0.8 m
+Emergency stop = 0.5 m
+Explain why dual thresholds reduce risk.
+
+3.3 Follow Behaviour
+
+Add proportional control behaviour:
+
+Robot speeds up when far
+
+Slows as it approaches safe distance
+
+Velocity capped for safety
+
+Smooth acceleration
+
+3.4 State Machine
+
+Include a diagram/table for the three states:
+
+SEARCH: rotate slowly looking for target
+
+FOLLOW: move forward with proportional control
+
+STOP: hold position until target increases distance again
+
+3.5 Dynamic Obstacle Handling
+
+State that:
+
+LiDAR can’t differentiate target vs obstacle
+
+Unexpected objects trigger safety stop
+
+This is a limitation of reactive design
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Evaluation
+4.1 Methodology
+
+Describe how you tested:
+
+Different human-walking speeds
+
+Sudden stops
+
+Occlusions
+
+Interference from obstacles
+
+10–20 runs for reliability
+
+4.2 Metrics Collected
+
+Table with:
+
+Min distance
+
+Stop time
+
+Overshoot
+
+Time to reacquire
+
+Collision count (should be 0)
+
+Even if your sim logs are approximate, provide realistic numbers.
+
+4.3 Results Discussion
+
+Explain:
+
+Safety distance maintained?
+
+Did robot wobble?
+
+Did reactive control overshoot?
+
+Did it respond fast enough during sudden stop?
+
+4.4 Limitations
+
+Discuss:
+
+LiDAR noise
+
+No height info
+
+Reactive control = jittery in clutter
+
+Simulation simplifications
+
+ros2_control delays
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. Ethical, Legal, Societal Discussion
+
+Make sure you hit LO3 strongly.
+
+5.1 Ethics
+
+Discuss:
+
+Safety as a core ethical requirement
+
+Predictability
+
+Responsibility when a robot follows someone
+
+Slow speeds, safety buffers
+
+Tie directly to your robot’s design choices.
+
+5.2 Legal
+
+Mention:
+
+ISO 13482 (personal care robots)
+
+ISO 10218 (industrial safety)
+
+GDPR (if storing human data – here, LiDAR is non-identifying, so low risk)
+
+5.3 Societal
+
+Discuss:
+
+Trust in robots
+
+Cultural expectations
+
+Impact on human workers
+
+Why simple, conservative behaviour reduces anxiety
+
+6. Reflection & Conclusion
+Write about:
+
+What worked well (reactive was responsive)
+
+What was difficult (noise, occlusion, state switching)
+
+If done in real world, what would break (clutter, narrow aisles, irregular human motion)
+
+Conclusion:
+
+Brief summary showing requirements → design → performance → future work.
