@@ -1,0 +1,11 @@
+Industrial Environments & Human-Robot Collaboration:
+
+Reviewing human-robot collaboration in manufacturing - https://www.sciencedirect.com/science/article/pii/S0736584524002242
+
+
+Safety and Reactive Control with LiDAR:
+Multi-layer robotic controller for enhancing the safety of mobile robot navigation in human-centered indoor environments - https://pmc.ncbi.nlm.nih.gov/articles/PMC12350386/
+Safety considerations for autonomous, modular robotics in aerospace manufacturing - https://pmc.ncbi.nlm.nih.gov/articles/PMC9718530/
+
+Legal, Standards & Societal Aspects:
+SO 13482 (personal care robots) and ISO 10218 (industrial robot safety)
