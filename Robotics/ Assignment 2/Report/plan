@@ -1,66 +1,3 @@
-Abstract (write last)
-
-Once you've finished everything else, summarise these five points in ~160 words:
-
-Scenario problem – Robot needs to follow a human safely in an industrial environment.
-
-Approach – LiDAR-only perception + reactive control (no planning).
-
-Techniques – ROS 2 nodes, finite state machine, safety thresholds.
-
-Evaluation – How well the robot followed, stopped, safety metrics.
-
-Ethics/legal – Why safe spacing and predictable motion matter.
-
-Conclusion – Robot worked, limitations found, future work.
-
-
-
-
-
-
-
-
-
-
-
-
-1. Introduction
-
-To complete this section, write about:
-
-✓ Scenario context
-
-Industrial warehouses and shared spaces with humans and robots.
-
-Need for autonomous following robots for logistics.
-
-✓ Problem definition
-
-Robot follows a dynamic target using only 2D LiDAR.
-
-No maps, no planning.
-
-Must stop at a defined safe distance.
-
-✓ Assessment constraints
-
-ROS 2 Jazzy
-
-Gazebo Harmonic
-
-Reactive behaviour only
-
-Simulation-based performance
-
-✓ Learning Outcomes
-
-Write one paragraph connecting your robot to LO2, LO3, LO4.
-
-
-
-
-
 2. System Design
 2.1 Robot Description
 
@@ -359,3 +296,26 @@ If done in real world, what would break (clutter, narrow aisles, irregular human
 Conclusion:
 
 Brief summary showing requirements → design → performance → future work.
+
+
+
+Abstract (write last)
+
+Once you've finished everything else, summarise these five points in ~160 words:
+
+Scenario problem – Robot needs to follow a human safely in an industrial environment.
+
+Approach – LiDAR-only perception + reactive control (no planning).
+
+Techniques – ROS 2 nodes, finite state machine, safety thresholds.
+
+Evaluation – How well the robot followed, stopped, safety metrics.
+
+Ethics/legal – Why safe spacing and predictable motion matter.
+
+Conclusion – Robot worked, limitations found, future work.
+
+
+
+
+
