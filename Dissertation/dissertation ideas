@@ -32,9 +32,11 @@ Hardware-Assisted Intrusion Detection for RISC-V
 Problem: Traditional IDS/IPS run in software and are too slow/power-hungry for embedded/IoT. RISC-V offers hardware extensions that could support lightweight security monitoring.
 Justification:  build a kernel module or lightweight monitor that uses performance counters / custom ISA extensions to detect anomalies (like buffer overflows or unusual syscalls).
 
-=================================================================================================
 
-Idea 1:
+
+
+
+Idea:
 A program to generate small kernel binary’s for the x86 , ARM and RISCv architectures
 
 Problem: Kernels are time consuming to develop as well as taking specialist knowledge to develop
